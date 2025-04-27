@@ -2,9 +2,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ARLON</title>
-<link href="./arlon/style.css" rel="stylesheet">
-<script type="text/javascript" src="./arlon/jquery.mlens-1.0.min.js"></script> 
-<script type="text/javascript" src="./arlon/jquery.js"></script>
+<link href="./gmmotion/style.css" rel="stylesheet">
+<script type="text/javascript" src="./gmmotion/jquery.mlens-1.0.min.js"></script> 
+<script type="text/javascript" src="./gmmotion/jquery.js"></script>
 
 <meta charset="UTF-8">  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
@@ -141,7 +141,7 @@
 
 <body>
 <div class="content">
-  <h1><strong>ARLON: Boosting Diffusion Transformers With Autoregressive Models for Long Video Generation</strong></h1>
+  <h1><strong>gmmotion: Boosting Diffusion Transformers With Autoregressive Models for Long Video Generation</strong></h1>
   
   <p id="authors" class="serif">
     <span style="font-size: 0.9em">
@@ -168,15 +168,6 @@
   <span style="font-size: 12pt;"><b><sup>*</sup>Equal contribution</b></span>
   <span style="font-size: 12pt;"><b><sup>&dagger;</sup>Corresponding author</b></span>
   <br>
-  <!-- <img src="./arlon/teaser_static.jpg" class="teaser-gif" style="width:100%;"><br>
-  <h3 style="text-align:center"><em>It’s like a photo booth, but once the subject is captured, it can be synthesized wherever your dreams take you…</em></h3>
-    <font size="+2">
-          <p style="text-align: center;">
-            <a href="https://arxiv.org/abs/2208.12242" target="_blank">[Paper]</a> &nbsp;&nbsp;&nbsp;&nbsp;
-	    (<font color="#C70039">new!</font>) <a href="https://github.com/google/dreambooth" target="_blank">[Dataset]</a> &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="arlon/bibtex.txt" target="_blank">[BibTeX]</a>
-          </p>
-    </font> -->
 </div>
 <div class="content">
   <h2 style="text-align:center;">Abstract</h2>
@@ -186,10 +177,10 @@
   <h2 style="text-align:center;">Method</h2>
   <p> Our method first generates long-term, coarse-grained discrete visual units (AR codes) autoregressively using a decoder-only Transformer. These discrete AR codes are then segmented and sequentially fed into the DiT model by the proposed semantic injection module, which autoregressively generates high-quality video segments.</p>
   <br>
-  <img class="summary-img" src="./arlon/generation_process.png" style="width:80%;"> <br>
+  <img class="summary-img" src="./gmmotion/generation_process.png" style="width:80%;"> <br>
   <p>Given a text prompt, the autoregressive (AR) model predicts coarse visual latent tokens, which are constructed from a 3D VAE encoder followed by a latent VQ-VAE encoder based on the target video. These predicted visual latent tokens encapsulate both the coarse spatial information and consistent semantic information. Based on these tokens, a latent VQ-VAE decoder generates continuous latent features, which serve as semantic conditions to guide the DiT model with a semantic injection module. To mitigate the noise inevitably introduced during AR inference, we introduce two noise-robust training strategies: 1) coarser visual latent tokens, and 2) uncertainty sampling module.</p>
   <br>
-  <img class="summary-img" src="./arlon/framework_final.png" style="width:80%;"> <br>
+  <img class="summary-img" src="./gmmotion/framework_final.png" style="width:80%;"> <br>
 </div>
 
 
@@ -199,19 +190,19 @@
     <div class="row2 video-wrapper">  
       <div class="column">  
           <div class="label_method">StreamingT2V</div>  
-          <video controls src="./arlon/st2v_22.mp4"></video>  
+          <video controls src="./gmmotion/st2v_22.mp4"></video>  
       </div>
       <div class="column">
           <div class="label_method">FreeNoise</div>
-          <video controls src="./arlon/free_noise_22.mp4"></video>
+          <video controls src="./gmmotion/free_noise_22.mp4"></video>
       </div>
       <div class="column">
           <div class="label_method">OpenSora</div>
-          <video controls src="./arlon/baseline_22.mp4"></video>
+          <video controls src="./gmmotion/baseline_22.mp4"></video>
       </div>
       <div class="column">
-        <div class="label_method">ARLON</div>
-        <video controls src="./arlon/sample_0022_1.mp4"></video>
+        <div class="label_method">gmmotion</div>
+        <video controls src="./gmmotion/sample_0022_1.mp4"></video>
     </div>
   </div>
   <div class="text-column_line">  
@@ -219,16 +210,16 @@
   </div>  
   <div class="row2 video-wrapper">  
       <div class="column">
-          <video controls src="./arlon/aquarium_st2v.mp4"></video>
+          <video controls src="./gmmotion/aquarium_st2v.mp4"></video>
       </div>
       <div class="column">
-          <video controls src="./arlon/free_noise0003.mp4"></video>  
+          <video controls src="./gmmotion/free_noise0003.mp4"></video>  
       </div>  
       <div class="column">  
-          <video controls src="./arlon/sample_0002_baseline.mp4"></video>  
+          <video controls src="./gmmotion/sample_0002_baseline.mp4"></video>  
       </div>  
       <div class="column">  
-        <video controls src="./arlon/aquarium-0.mp4"></video>  
+        <video controls src="./gmmotion/aquarium-0.mp4"></video>  
     </div>  
   </div>
   <div class="text-column_line">  
@@ -242,19 +233,19 @@
     <div class="row">  
         <div class="label">OpenSora</div>  
         <div class="video-wrapper">  
-            <video controls src="./arlon/sample_0005_baseline.mp4"></video>  
-            <video controls src="./arlon/sample_0073_baseline.mp4"></video>  
-            <video controls src="./arlon/sample_0007_baseline.mp4"></video>  
-            <video controls src="./arlon/sample_0026_baseline.mp4"></video>  
+            <video controls src="./gmmotion/sample_0005_baseline.mp4"></video>  
+            <video controls src="./gmmotion/sample_0073_baseline.mp4"></video>  
+            <video controls src="./gmmotion/sample_0007_baseline.mp4"></video>  
+            <video controls src="./gmmotion/sample_0026_baseline.mp4"></video>  
         </div>
     </div>
     <div class="row">
-        <div class="label">ARLON</div>
+        <div class="label">gmmotion</div>
         <div class="video-wrapper">
-            <video controls src="./arlon/sample_0005.mp4"></video>
-            <video controls src="./arlon/sample_0073.mp4"></video>
-            <video controls src="./arlon/sample_0007.mp4"></video>
-            <video controls src="./arlon/sample_0026.mp4"></video>
+            <video controls src="./gmmotion/sample_0005.mp4"></video>
+            <video controls src="./gmmotion/sample_0073.mp4"></video>
+            <video controls src="./gmmotion/sample_0007.mp4"></video>
+            <video controls src="./gmmotion/sample_0026.mp4"></video>
         </div>
     </div>
     <div class="row">  
@@ -281,19 +272,19 @@
   <div class="row2 video-wrapper">
     <div class="column">  
         <div class="label_method">StreamingT2V</div>
-        <video controls src="./arlon/st2v2_2.mp4"></video>
+        <video controls src="./gmmotion/st2v2_2.mp4"></video>
     </div>  
     <div class="column">  
         <div class="label_method">FreeNoise</div>  
-        <video controls src="./arlon/0002.mp4"></video>  
+        <video controls src="./gmmotion/0002.mp4"></video>  
     </div>  
     <div class="column">  
         <div class="label_method">OpenSora</div>  
-        <video controls src="./arlon/sample_0000_baseline.mp4"></video>  
+        <video controls src="./gmmotion/sample_0000_baseline.mp4"></video>  
     </div>  
     <div class="column">  
-      <div class="label_method">ARLON</div>  
-      <video controls src="./arlon/sample_0001.mp4"></video>  
+      <div class="label_method">gmmotion</div>  
+      <video controls src="./gmmotion/sample_0001.mp4"></video>  
   </div>  
 </div>
 <div class="text-column_line">  
@@ -304,37 +295,29 @@ Prompt1: "A majestic dormant volcano rises in the center of a tranquil landscape
 Prompt2: "An erupting volcano dominates the scene, with fiery lava and ash contrasting the lush forest below, as dark clouds and lightning fill the sky,  capturing the chaos and power of nature's fury"
 </div>  
 
-    <!-- <div class="row">  
-        <div class="label">ours</div>  
-        <div class="video-wrapper">  
-            <video controls src="./arlon/aquarium-0.mp4"></video>  
-            <video controls src="./arlon/aquarium-0.mp4"></video>  
-            <video controls src="./arlon/aquarium-0.mp4"></video>  
-        </div>  
-    </div>   -->
 </div> 
 
 <div class="content">
   <h2 style="text-align:center;">Denoising Step Results</h2>
   <br>
-  <img class="summary-img" src="./arlon/step1.png" style="width:100%;"> <br>
+  <img class="summary-img" src="./gmmotion/step1.png" style="width:100%;"> <br>
 </div>
 
 
 <div class="content video-container">  
-  <h2 style="text-align:center;">  Video Condition Generation of ARLON </h2>
+  <h2 style="text-align:center;">  Video Condition Generation of gmmotion </h2>
   <div class="row2 video-wrapper2">  
     <div class="column">  
         <div class="label_method">Condition Video</div>  
-        <video controls src="./arlon/Media2.mp4"></video>  
+        <video controls src="./gmmotion/Media2.mp4"></video>  
     </div>  
     <div class="column">  
         <div class="label_method">Generated Video1</div>  
-        <video controls src="./arlon/Media1.mp4"></video>  
+        <video controls src="./gmmotion/Media1.mp4"></video>  
     </div>  
     <div class="column">  
       <div class="label_method">Generated Video2</div>  
-      <video controls src="./arlon/Media3.mp4"></video>  
+      <video controls src="./gmmotion/Media3.mp4"></video>  
   </div>  
 
 </div> 
@@ -346,54 +329,6 @@ Prompt2: "An erupting volcano dominates the scene, with fiery lava and ash contr
         "A high-quality 3D render of a female character with curly blonde hair and striking blue eyes, wearing a black tank top, standing before a dramatic, fiery backdrop, with a serious expression and detailed, realistic lighting."
     </div>  
   </div>
-
-
-<!-- 
-<div class="content video-container">  
-  <h2 style="text-align:center;">Denoising step Results</h2>
-    <div class="row">  
-        <div class="label">baseline</div>  
-        <div class="video-wrapper">  
-            <video controls src="./arlon/aquarium-0.mp4"></video>  
-            <video controls src="./arlon/aquarium-0.mp4"></video>  
-            <video controls src="./arlon/aquarium-0.mp4"></video>  
-        </div>  
-    </div>  
-    <div class="row">  
-        <div class="label">ours</div>  
-        <div class="video-wrapper">  
-            <video controls src="./arlon/aquarium-0.mp4"></video>  
-            <video controls src="./arlon/aquarium-0.mp4"></video>  
-            <video controls src="./arlon/aquarium-0.mp4"></video>  
-        </div>  
-    </div>  
-</div>   -->
-<!-- 
-<div class="content">
-  <h2>Results</h2>
-  <p>Results for re-contextualization of a bag and vase subject instances. By finetuning a model using our method we are able to generate different images of the a subject instance in different environments, with high preservation of subject details and realistic interaction between the scene and the subject. We display the conditioning prompts below each image. </p>
-<img class="summary-img" src="./arlon/results.png" style="width:100%;">
-</div>
-
-<div class="content">
-  <h2>Art Rendition</h2>
-  <p>Original artistic renditions of our subject dog in the style of famous painters. We remark that many of the generated poses were not seen in the training set, such as the Van Gogh and Warhol rendition. We also note that some renditions seem to have novel composition and faithfully imitate the style of the painter - even suggesting some sort of creativity (extrapolation given previous knowledge).</p>
-  <br>
-  <img class="summary-img" src="./arlon/art.png" style="width:100%;"> <br>
-</div>
-
-<div class="content">
-  <h2>Text-Guided View Synthesis</h2>
-  <p>Our technique can synthesized images with specified viewpoints for a subject cat (left to right: top, bottom, side and back views). Note that the generated poses are  different from the input poses, and the background changes in a realistic manner given a pose change. We also highlight the preservation of complex fur patterns on the subject cat's forehead.</p>
-  <br>
-  <img class="summary-img" src="./arlon/novel_views.png" style="width:100%;"> <br>
-</div>
-<div class="content">
-  <h2>Property Modification</h2>
-  <p>We show color modifications in the first row (using prompts ``a [color] [V] car''), and crosses between a specific dog and different animals in the second row (using prompts ``a cross of a [V] dog and a [target species]''). We highlight the fact that our method preserves unique visual features that give the subject its identity or essence, while performing the required property modification.</p>
-  <br>
-  <img class="summary-img" src="./arlon/property_modification.png" style="width:100%;"> <br>
-</div> -->
 
 </body>
 </html>
