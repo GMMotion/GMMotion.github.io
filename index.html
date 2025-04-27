@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ARLON</title>
+<title>GMMotion</title>
 <link href="./gmmotion/style.css" rel="stylesheet">
 <script type="text/javascript" src="./gmmotion/jquery.mlens-1.0.min.js"></script> 
 <script type="text/javascript" src="./gmmotion/jquery.js"></script>
@@ -20,12 +20,6 @@
             flex-wrap: wrap;
             gap: 50x; /* 调整视频之间的间隙 */
         }
-
-        /* .row {
-            display: flex;
-            width: 100%;
-            align-items: center;
-        }   */
   
         .row {  
             display: flex;  
@@ -141,37 +135,28 @@
 
 <body>
 <div class="content">
-  <h1><strong>gmmotion: Boosting Diffusion Transformers With Autoregressive Models for Long Video Generation</strong></h1>
+  <h1><strong>GMMotion: Autoregressive Motion Generation with Gaussian Mixtures</strong></h1>
   
   <p id="authors" class="serif">
     <span style="font-size: 0.9em">
-    <a>Zongyi Li<sup>1*</sup></a>
-    <a>Shujie Hu<sup>2*</sup></a>
-    <a>Shujie Liu<sup>3&dagger;</sup></a>
-    <a>Long Zhou<sup>3</sup></a>
-    <a>Jeongsoo Choi<sup>4</sup></a>
-    <a>Lingwei Meng<sup>3</sup></a>
-    <a>Xun Guo<sup>3</sup></a>
-    <a>Jinyu Li<sup>3</sup></a>
-    <a>Hefei Ling<sup>1</sup></a>
-    <a>Furu Wei<sup>3</sup></a>
+    <a>Anonymous author</a>
     </span>
     <br>
   <span style="font-size: 1.0em; margin-top: 0.6em">
-    <a><sup>1</sup>Huazhong University of Science and Technology</a>
+    <!-- <a><sup>1</sup>Huazhong University of Science and Technology</a>
     <a><sup>2</sup>The Chinese University of Hong Kong</a>
     <a><sup>3</sup>Microsoft Corporation</a>
-    <a><sup>4</sup>KAIST</a>
+    <a><sup>4</sup>KAIST</a> -->
 
   <br>
   </span>
-  <span style="font-size: 12pt;"><b><sup>*</sup>Equal contribution</b></span>
-  <span style="font-size: 12pt;"><b><sup>&dagger;</sup>Corresponding author</b></span>
+  <!-- <span style="font-size: 12pt;"><b><sup>*</sup>Equal contribution</b></span>
+  <span style="font-size: 12pt;"><b><sup>&dagger;</sup>Corresponding author</b></span> -->
   <br>
 </div>
 <div class="content">
   <h2 style="text-align:center;">Abstract</h2>
-  <p>Text-to-video (T2V) models have recently undergone rapid and substantial advancements. Nevertheless, due to limitations in data and computational resources, achieving efficient generation of long videos with rich motion dynamics remains a significant challenge. To generate high-quality, dynamic, and temporally consistent long videos, this paper presents ARLON,  a novel framework that boosts diffusion Transformers with autoregressive (<b>AR</b>) models for long (<b>LON</b>) video generation, by integrating the coarse spatial and long-range temporal information provided by the AR model to guide the DiT model effectively. Specifically, ARLON incorporates several key innovations: 1) A latent Vector Quantized Variational Autoencoder (VQ-VAE) compresses the input latent space of the DiT model into compact and highly quantized visual tokens, bridging the AR and DiT models and balancing the learning complexity and information density; 2) An adaptive norm-based semantic injection module integrates the coarse discrete visual units from the AR model into the DiT model, ensuring effective guidance during video generation; 3) To enhance the tolerance capability of noise introduced from the AR inference, the DiT model is trained with coarser visual latent tokens incorporated with an uncertainty sampling module. Experimental results demonstrate that ARLON significantly outperforms the baseline OpenSora-V1.2 on eight out of eleven metrics selected from VBench, with notable improvements in dynamic degree and aesthetic quality, while delivering competitive results on the remaining three and simultaneously accelerating the generation process. In addition, ARLON achieves state-of-the-art performance in long video generation, outperforming other open-source models in this domain. Detailed analyses of the improvements in inference efficiency are presented, alongside a practical application that demonstrates the generation of long videos using progressive text prompts.</p>
+  <p>Recent advances in the metaverse, spatial intelligence, and multi-modal models have spurred significant interest in 3D human motion generation. Existing efforts in motion synthesis typically utilize either generative transformers with discrete representations or diffusion models with continuous representations. However, the discretization process in generative transformers can introduce motion errors, while the sampling process in diffusion models tends to be slow. In this paper, we propose a novel text-to-motion synthesis method that combines a continuous motion representation with a masked autoregressive model, using the Gaussian mixture model (GMM) to represent the conditional probability distribution. Unlike existing approaches that rely on residual vector quantization, our model employs continuous motion representations derived from the VAE's latent space. This choice streamlines both the training and the inference processes. Specifically, we utilize a masked autoregressive transformer to learn the distributions of continuous motion representations, which are modeled with a learnable Gaussian mixture model. Extensive experiments demonstrate that our model surpasses existing state-of-the-art models in the motion synthesis task.</p>
 </div>
 <div class="content">
   <h2 style="text-align:center;">Method</h2>
