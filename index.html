@@ -163,7 +163,7 @@
   <p> We lead the motion sequence into the Gaussian Mixtures latent space with learnable parameters in the first stage.
     By constraining the latent representation to be a continuous multi-modal distribution during VAE training and recovering it in the second stage with a continuous masked autoregressive (MAR) model, we can build a MAR model that retains all the advantages of AR modeling (prompting, integrated duration modeling, and sampling) without many of the challenges associated with VQ.</p>
   <br>
-  <img class="summary-img" src="./gmmotion/gmm-pipeline.png" style="width:80%;"> <br>
+  <img class="summary-img" src="./gmmotion/gmmotion-pipe.png" style="width:80%;"> <br>
   <p>Motion data, which describe the movement of different parts of the body, can be highly variable due to the unique motion patterns of individual joints. This complexity makes it difficult to represent the data with a single normal distribution. For example, the movement of your feet when walking or running (including speed and rhythm) can differ significantly from the movements of other parts of your body. This motivated us to model multi-modal distributions in a continuous latent space to preserve the temporal integrity of motion data.</p>
   <br>
   <img class="summary-img" src="./gmmotion/motivation.png" style="width:80%;"> <br>
