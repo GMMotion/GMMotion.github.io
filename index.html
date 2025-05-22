@@ -136,7 +136,7 @@
 <body>
 <div class="content">
   <!-- <h1><strong>GMMotion: Autoregressive Motion Generation with Gaussian Mixture-Guided Latent Sampling</strong></h1> -->
-  <h1><strong>GMMotion:  will refine this demo page before the appendix submission deadline.</strong></h1>
+  <h1><strong>GMMotion: Autoregressive Motion Generation with Gaussian Mixture-Guided Latent Sampling</strong></h1>
   <p id="authors" class="serif">
     <span style="font-size: 0.9em">
     <a>Anonymous author</a>
@@ -156,12 +156,14 @@
 </div>
 <div class="content">
   <h2 style="text-align:center;">Abstract</h2>
-  <p>Recent advances in the metaverse, spatial intelligence, and multi-modal models have spurred significant interest in 3D human motion generation. Existing efforts in motion synthesis typically utilize either generative transformers with discrete representations or diffusion models with continuous representations. However, the discretization process in generative transformers can introduce motion errors, while the sampling process in diffusion models tends to be slow. In this paper, we propose a novel text-to-motion synthesis method that combines a continuous motion representation with a masked autoregressive model, using the Gaussian mixture model (GMM) to represent the conditional probability distribution. Unlike existing approaches that rely on residual vector quantization, our model employs continuous motion representations derived from the VAE's latent space. This choice streamlines both the training and the inference processes. Specifically, we utilize a masked autoregressive transformer to learn the distributions of continuous motion representations, which are modeled with a learnable Gaussian mixture model. Extensive experiments demonstrate that our model surpasses existing state-of-the-art models in the motion synthesis task.</p>
+  <p>Existing efforts in motion synthesis typically utilize either generative transformers with discrete representations or diffusion models with continuous representations. However, the discretization process in generative transformers can introduce motion errors, while the sampling process in diffusion models tends to be slow. In this paper, we propose a novel text-to-motion synthesis method GMMotion that combines a continuous motion representation with an autoregressive model, using the Gaussian mixture model (GMM) to represent the conditional probability distribution. Unlike autoregressive approaches relying on residual vector quantization, our model employs continuous motion representations derived from the VAE's latent space. This choice streamlines both the training and the inference processes. Specifically, we utilize a causal transformer to learn the distributions of continuous motion representations, which are modeled with a learnable Gaussian mixture model. Extensive experiments demonstrate that our model surpasses existing state-of-the-art models in the motion synthesis task.</p>
 </div>
 <div class="content">
   <h2 style="text-align:center;">Method</h2>
-  <p> We lead the motion sequence into the Gaussian Mixtures latent space with learnable parameters in the first stage.
-    By constraining the latent representation to be a continuous multi-modal distribution during VAE training and recovering it in the second stage with a continuous masked autoregressive (MAR) model, we can build a MAR model that retains all the advantages of AR modeling (prompting, integrated duration modeling, and sampling) without many of the challenges associated with VQ.</p>
+  <p> In this paper, we propose a novel framework called  Autoregressive Modeling with Gaussian Mixtures (GMMotion), which aims to synthesize motions with continuous GMM latent sapce, demonstrating that vector quantization is not a necessary prerequisite for autoregressive motion modeling. 
+We lead the motion sequence into the Gaussian mixtures' latent space with learnable parameters in the first stage.
+By constraining the latent representation to be a continuous multi-modal distribution during VAE training and recovering it in the second stage with a continuous autoregressive (AR) model, we can build a AR model that retains all the advantages of Large Language Modeling (prompting, integrated duration modeling, and sampling) without many of the challenges associated with VQ.
+Additionally, our key advantage lies in eliminating the need to predefine the duration of generated content, enabling the synthesis of longer motion sequences based on the complexity of control conditions.</p>
   <br>
   <img class="summary-img" src="./gmmotion/gmmotion-pipe.png" style="width:80%;"> <br>
   <p>Motion data, which describe the movement of different parts of the body, can be highly variable due to the unique motion patterns of individual joints. This complexity makes it difficult to represent the data with a single normal distribution. For example, the movement of your feet when walking or running (including speed and rhythm) can differ significantly from the movements of other parts of your body. This motivated us to model multi-modal distributions in a continuous latent space to preserve the temporal integrity of motion data.</p>
@@ -212,10 +214,156 @@
   "In a mesmerizing underwater world, vibrant coral reefs teem with life, their colors ranging from deep purples to bright oranges. Schools of tropical fish, including angelfish, clownfish, and tangs, dart gracefully through the water, their scales shimmering in the filtered sunlight"
   </div>  
 </div> -->
+<div class="content video-container">  
+  <h2 style="text-align:center;">Text to Motion Generation Results</h2>
   
+  <div class="row">
+    <div class="label">GMMotion</div>
+    <div class="video-scroll-container">
+      <div class="video-scroll-wrapper">
+        <video controls src="./gmmotion/a-man-acting.mp4"></video>
+        <video controls src="./gmmotion/pickes.mp4"></video>
+        <video controls src="./gmmotion/turns-to.mp4"></video>
+        <video controls src="./gmmotion/sidetoside.mp4"></video>
+        <video controls src="./gmmotion/revolves.mp4"></video>
+      </div>
+    </div>
+  </div>
+  
+  <!-- <div class="row text-scroll-container">  
+    <div class="text-scroll-wrapper">
+      <div class="text-column">  
+        "a person looks around, raises their arms straight out, then walks forward one foot in front of another. After a while, walking towards the right in a curved path."
+      </div>  
+      <div class="text-column">  
+        "a person seductively saunters forward, then bends down and picks up something, then stands up and walks forward"
+      </div>  
+      <div class="text-column">  
+        "a person is continuously walking forward"
+      </div>  
+      <div class="text-column">  
+        "a person walks wobbly down an incline"  
+      </div>  
+      <div class="text-column">  
+        "a person walks wobbly down an incline"  
+      </div>  
+    </div>
+  </div> -->
+</div>
+
+<style>
+.content
+ {
+  max-width: 1200px
+;
+  margin: 0
+ auto;
+  padding: 20px
+;
+}
+
+.video-scroll-container
+ {
+  width: 100%
+;
+  overflow-x
+: auto;
+  white-space
+: nowrap;
+  padding: 10px 0
+;
+  -webkit-overflow-scrolling: touch; /* 平滑滚动(iOS) */
+}
+
+.video-scroll-wrapper
+ {
+  display
+: inline-flex;
+  gap: 15px
+;
+}
+
+.video-scroll-wrapper video
+ {
+  width: 300px
+;
+  height
+: auto;
+  display
+: inline-block;
+  border-radius: 8px
+;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1
+);
+}
+
+.text-scroll-container
+ {
+  width: 100%
+;
+  overflow-x
+: auto;
+  white-space
+: nowrap;
+  padding: 10px 0
+;
+}
+
+.text-scroll-wrapper
+ {
+  display
+: inline-flex;
+  gap: 15px
+;
+}
+
+.text-column
+ {
+  width: 300px
+;
+  display
+: inline-block;
+  white-space
+: normal;
+  padding: 10px
+;
+  background: #f5f5f5
+;
+  border-radius: 8px
+;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1
+);
+}
+
+.label
+ {
+  font-weight
+: bold;
+  margin-bottom: 10px
+;
+  font-size: 18px
+;
+}
+
+h2
+ {
+  margin-bottom: 20px
+;
+}
+
+/* 隐藏滚动条但保持滚动功能 */
+.video-scroll-container
+::-webkit-scrollbar,
+.text-scroll-container::-webkit-scrollbar {
+  display
+: none;
+}
+</style>
   
 <div class="content video-container">  
   <h2 style="text-align:center;">Scalable Motion Generation Results</h2>
+  <p>The continuous autoregressive design of GMMotion and the integration of rotary position encoding enable the generation of long videos in a single pass based on complex textual descriptions, without the need for motion composition.</p>
+  <p>We can generate a ~1-minute-long video vs. 10-second (other methods)</p>
     <!-- <div class="row">  
         <div class="label">OpenSora</div>  
         <div class="video-wrapper">  
